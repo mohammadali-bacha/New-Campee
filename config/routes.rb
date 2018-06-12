@@ -19,6 +19,7 @@ resources :rooms, except: [:edit] do
 end
 
 resources :photos, only: [:create, :destroy]
+resources :reservations, only: [:create]
 end
 
 end
