@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# require 'dotenv'
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -281,6 +281,6 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-config.omniauth :facebook, 'API_KEY', 'SECRET_KEY', scope: 'email', info_fields: 'email, name'
+config.omniauth :facebook, '447302382396308', 'efedd86209ebcdd56ffa6836c0902f78', scope: 'email', info_fields: 'email, name'
 
 end

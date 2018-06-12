@@ -62,3 +62,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
+gem 'paperclip', '~> 5.1.0'
+gem 'geocoder', '~> 1.4'
