@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
 <% if (!user_signed_in?)%>
   <li><%= link_to "Se connecter", new_user_session_path %></li>
-  <li><%= link_to "Deconnexion", new_user_registration_path %></li>
+  <li><%= link_to "Créer mon compte", new_user_registration_path %></li>
 <% else %>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -22,13 +22,13 @@
 <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
         <%= current_user.fullname %> <span class="caret"></span></a>
     <ul class="dropdown-menu">
-      <li><a href="#">Gérer les Listing</a></li>
-      <li><a href="#">List your Space</a></li>
+      <li><a href="#">Gérer les campings</a></li>
+      <li><%=  link_to "Créer un nouveau camping", new_room_path %></li>
       <li><a href="#">Vos réservations</a></li>
 
       <li role="separator" class="divider"></li>
       <li><%= link_to "Editer le profil", edit_user_registration_path %></li>
-      <li><%= link_to "Deconnexion", destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></li>
     </ul>
   </li>
 <% end %>
