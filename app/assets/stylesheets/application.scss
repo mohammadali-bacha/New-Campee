@@ -3,10 +3,11 @@
 @import "toastr";
 
 
+
 body {
-  color: #565a5c;
-  background-color: #F8F8F8;
-  font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #1e2020;
+  background-color: #fcfcfc;
+  font-family: "Questrial", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 a {
@@ -18,7 +19,7 @@ a {
 }
 
 .text-babu, .icon-babu {
-  color: #00A699;
+  color: #0067a6;
 }
 
 .text-red, .icon-red {
@@ -31,7 +32,7 @@ a {
 }
 
 .navbar-default .navbar-brand {
-  color: #FF5A5F;
+  color: #008bb4;
   font-size: 2em;
   font-weight: 400;
 }
@@ -59,6 +60,7 @@ a {
   color: #fff;
 }
 
+
 .btn.btn-default {
   width: 100%;
   border-color: #c4c4c4;
@@ -69,9 +71,10 @@ a {
   margin-top: 10px;
 }
 
+
 .btn.btn-normal {
-  border: 1px solid #ff5a5f;
-  background-color: #ff5a5f;
+  border: 1px solid #008bb4;
+  background-color: #008bb4;
 }
 
 .btn.btn-normal:active {
@@ -105,7 +108,7 @@ a {
 // PANELS
 .panel-default .panel-heading {
   color: #ffffff;
-  background-color: #00A699;
+  background-color: #0003a6;
   font-size: 18px;
   font-weight: 400;
 }
@@ -126,7 +129,7 @@ a {
 }
 
 .description {
-  color: #575757;
+  color: #4e4e4e;
   font-size: 15px;
   font-weight: 500;
   line-height: 25px;
@@ -158,7 +161,7 @@ a {
   border-radius: 2px;
   height: 4rem;
 }
-
+// ###############################
 .form-group input {
   height: 45px;
   border: 1px solid #00A699;

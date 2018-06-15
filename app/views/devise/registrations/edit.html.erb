@@ -1,6 +1,31 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
+        <li class="siderbar-item"><%= link_to "Modifier le profile", edit_user_registration_path, class: "sidebar-link active"%></li>
+      </ul>
+      <br/>
+      <%= link_to "Voir mon profile", user_path(current_user.id), class: "btn btn-default"%>
+  </div>
+  <div class="col-md-9 text-center">
+    <div class="panel panel-default">
+      <div class="panel-heading">Votre Profile</div>
+      <div class="panel-body">
+<div class="container">
+
+
+
+</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
       <li class="sidebar-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
     </ul>
     <br/>
