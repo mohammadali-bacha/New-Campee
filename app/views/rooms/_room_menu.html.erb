@@ -38,5 +38,10 @@
 
 <%= form_for @room do |f| %>
   <%= f.hidden_field :active, value: true %>
-  <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+  <%= f.submit "Publier mon Camping", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+<% end %>
+<br/>
+<br/>
+<%= form_for @room do |f| %>
+  <%= link_to "Se rendre sur la page", room_path(params[:id]), id: "publish_button", class: "btn btn-normal btn-block" %>
 <% end %>
