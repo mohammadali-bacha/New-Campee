@@ -6,7 +6,7 @@
     <div class="panel panel-default">
 
       <div class="panel-heading">
-        Amenities
+        Equipements
       </div>
 
       <div class="panel-body">
@@ -15,10 +15,10 @@
 
               <div class="row form-group">
                 <div class="col-md-4">
-                  <%= f.check_box :is_tv %> TV
+                  <%= f.check_box :is_tv %> Piscine
                 </div>
                 <div class="col-md-4">
-                  <%= f.check_box :is_kitchen %> Kitchen
+                  <%= f.check_box :is_kitchen %> Cuisine partagée
                 </div>
                 <div class="col-md-4">
                   <%= f.check_box :is_internet %> Internet
@@ -27,16 +27,16 @@
 
               <div class="row form-group">
                 <div class="col-md-4">
-                  <%= f.check_box :is_heating %> Heating
+                  <%= f.check_box :is_heating %> Piscine
                 </div>
                 <div class="col-md-4">
-                  <%= f.check_box :is_air %> Air Conditioning
+                  <%= f.check_box :is_air %> Tennis
                 </div>
               </div>
               <br/><br/>
 
               <div class="text-center">
-                <%= f.submit "Save", class: "btn btn-form" %>
+                <%= f.submit "Sauvegarder", class: "btn btn-form" %>
               </div>
 
           <% end %>

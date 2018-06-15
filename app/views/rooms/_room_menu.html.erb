@@ -4,7 +4,7 @@
     <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
   </li>
   <li class="sidebar-item">
-    <%= link_to "Pricing", pricing_room_path, class: "sidebar-link active" %>
+    <%= link_to "Prix", pricing_room_path, class: "sidebar-link active" %>
     <% if !@room.price.blank? %>
       <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
     <% end %>
@@ -22,11 +22,11 @@
     <% end %>
   </li>
   <li class="sidebar-item">
-    <%= link_to "Amenities", amenities_room_path, class: "sidebar-link active" %>
+    <%= link_to "Equipements", amenities_room_path, class: "sidebar-link active" %>
     <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
   </li>
   <li class="sidebar-item">
-    <%= link_to "Location", location_room_path, class: "sidebar-link active" %>
+    <%= link_to "Adresse", location_room_path, class: "sidebar-link active" %>
     <% if !@room.address.blank? %>
       <span class="pull-right text-babu"><i class="fa fa-check"></i></span>
     <% end %>
