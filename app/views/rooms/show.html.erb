@@ -206,7 +206,7 @@ var geocoder = new google.maps.Geocoder();
 
 	function googleGeocoding(text, callResponse)
 	{
-		geocoder.geocode({address: text}, callResponse);
+		geocoder.geocode({address: room.address}, callResponse);
 	}
 
 	function formatJSON(rawjson)
@@ -238,7 +238,7 @@ var geocoder = new google.maps.Geocoder();
       }
 
 		}) );
-    
+
                                 // add  a fullscreen button to an existing map:
                                 mymap.addControl(new L.Control.Fullscreen());
                             
