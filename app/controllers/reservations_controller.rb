@@ -28,4 +28,6 @@ end
   def reservation_params
     params.require(:reservation).permit(:start_date, :end_date)
   end
+  def show
+  end
 end

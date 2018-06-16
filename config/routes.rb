@@ -17,6 +17,7 @@ resources :rooms, except: [:edit] do
                     get 'amenities'
                         get 'location'
                           get 'preload'
+                          
 end
 
 resources :photos, only: [:create, :destroy]
