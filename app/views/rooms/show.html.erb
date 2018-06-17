@@ -145,38 +145,32 @@
     <link rel="stylesheet" href="main.css" />
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.62.0/dist/L.Control.Locate.min.css" crossorigin="" /> -->
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/leaflet-transitionedicon@0.2.1/index.min.js">crossorigin = ""</script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.62.0/src/L.Control.Locate.min.js">crossorigin = ""</script> -->
-<script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.0/dist/leaflet-search.src.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.0/dist/leaflet-search.src.min.js"></script>
 
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></script>
+
 
 
                           
-    <%# </div> %>
       <script type="text/javascript">
                             
                                 var mbAttr = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-
-                                    // mbUrl1 = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
-                                    // + (L.Browser.retina ? '@2x' : '') +
-                                    // https://{s}.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png
 
                                     mbUrl1 = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png';
 
                                 mbUrl2 = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
 
-
-                                // var tileURL = 'http://{s}.tile.cloudmade.com/{api-key}/1714'     + (L.Browser.retina ? '@2x' : '') + '/256/{z}/{x}/{y}.png';
-
-                                // L.tileLayer(tileURL, { detectRetina: true }).addTo(mymap);
-
                                 var map = L.tileLayer(mbUrl1, { attribution: mbAttr }),
                                     satellite = L.tileLayer(mbUrl2, { attribution: mbAttr });
 
+            var location = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
 
                                 var mymap = L.map('map', {
-                                    center: [42.57265, 3.01467],
+                                    // center: [lat, lng],
+                                    center: location,
+                                    // center: [42.57, 3.03],
                                     // zoom: 14.5,
                                     zoom: 13,
                                     layers: [map, satellite]
@@ -189,53 +183,51 @@
 
                                 L.control.layers(baseMaps).addTo(mymap);
 
-
-                                ////////////////////////////////////////////////
-
-                                // var mokaIcon = L.icon({
-                                // iconUrl: 'https://www.rakwe.fr/assets/images/logo-dtour-904x1280.png',
-                                // iconUrl: 'logo-dtour.png',
-                                // iconUrl: 'https://png.icons8.com/ios/50/000000/moka-pot.png',
-                                // iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATkSURBVGhD7ZlrqFRVGIZPFzPN1PISCUoSKRn9KNH6ISRaaqlBZCUVZlcSQUW7EFZWpCZe0MjbD0FCqAwLQk0LKoiiKKhUVPBeUZaW0kWzMnufb++PWbPPOgfnzJm9HfSBB+b71ppZe8+svW7TcIbThCHyW3lC/ivflRfKumOz5CZCp8m6Y4fk4q+QL6avn5F1xxrJxd8lN6SvR8u642nJxS+SB9LXPWTdcJF8Xh6WXHzo1/I2eZY8ZYndwK+Bf6S5U/aGYjewTg6QIefJR+Qe6fW+koXfUOwGPpXDJGVNeYl8Uv4sszcUq99Gtjqd5b3ybXlE+oXUUtqZI8+WVdFVPiTXy2MybOS43JXqXeafIBfzR0m9P4PcT2nu9yCHeyVtUMZc1GKul79JPgj/lhslfZ2YpYfTXpKjfnOMkdR7w6KEcZLcCovKGSz5crihm0hUyjnyB0kD9OH7JH3WYSSirJNFCX9JcudaFOdhSZ1lFiVMluTmW9QYninK90uesYr5UPIBdIN7SATw01PW26IE7zbdLIrzuKTOTIsSnpPkmERjMKr56mAuiUphxFgs+QBcKP3b/lKSu9aihG2SXB+L4syW1HnMogRmf3ITLYpzs6TOexa1kPvlUckHfSS7y/fT+EbpMPySG2hRnOWSOg9alPCqJHe3RXFWSuossKgKmOB8f/Gd3JS+vkM6ayW54RbFWS2pc7tFCe9IciMsagy/Og87Q3EvEtVC3/fnxmUEc/ybHWtRHP8l2Xg5n0hy11nUmA8k5bMsaiV4Rvh5+WBkRHFOpq9/IalzjUUJWyW5vhaVc6ukjLmmI4nWZp6kgdjoM92iODsldS6zKMFHO569EL40H0AmkKgFPikusSjB5wNusil+kdQJv12ff7LrqkmSPL9Yc3NTVfCQ08jrFiUwaZKLzdDAfPCfDFcE7STvYZkfcrE8KClj6K0ZDLs0wpLF8f78lkWNYWVAOTtGh10jOUbCEH/eOH2pKf0lDXFawmtkcUmOB9pzoaOkX7Tn/Jf9Rjo9Jes61lj9SNSS82VsO9tSX5EOv9Ju+axFOcAmiotgec+SpVK3S97P0VEHWRjMslzIPosqZ5Dk/R9bVCB+I0xWPPyVOkXyftZvheKHcNVK12TPXghXSy6CDRbrJ9eXIIeCHNJ9yDNfxPK8rxDulFxAuGUFtqPks+P/pZJ8dr64QJJnv14IT0gugBMORi+W4lyszwuvyRCfwWN7ej9S7WJRzrDGonEWcy+lr2+QPikulVl8TcV5QAhDMXkmyNzhNJHGb5Es6Pj7ANjCko/tHTg8oCz7zb8pyXPCkjtbJI1fZVEJ/y+ErpfFJ8DLLSrBgQL5cB+fG34ozcMawlKDfLhzdD6TlGW7EBsx8uEyJRfY8tIw57dZVknKGNWysFKmbKhFJUZK8uz5c4VTEhr+3KJy/NmJHUAwVFMWHjwA3ZM83TVXmppDoLmDBD8KesCiEvzbSz73uSScQ7L4IBA7SKA+ZVMtKsd3g7nOJeEckuV7SVnsjPYpSdkLFpVTyFzCXww0GttL+2jW1qJyHpWUvWxROYXMJX4OdaVFJTgFIc+JYAwO7ijnIC9LIXOJ92f+12Bt5Y6X5NkCh3nXD7BZ6WbL/Gw39tzVDD/jrYW57ks4XJshGU5bSwaQQtZaZ6gNDQ3/A4P7AXKax50/AAAAAElFTkSuQmCC',
-                                // shadowUrl: 'leaf-shadow.png',
-                                // iconSize: [50, 95], // size of the icon
-                                //    iconSize: [80,90],
-                                // shadowSize: [50, 64], // size of the shadow
-                                // iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-                                // shadowAnchor: [4, 62],  // the same for the shadow
-                                // popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
-                                // });
-
-                                // L.marker([45.769779, 4.834558], { icon: mokaIcon }).addTo(mymap).bindPopup('This is  !');
                                 L.marker([42.5708961, 3.0300651000000016], ).addTo(mymap).bindPopup('This is Camping Le Pearl');
 
                                 //42.5708961, 3.0300651000000016 camping lepearl 
+//add search
 
-                                // add search
-                                mymap.addControl(new L.Control.Search({
-                                    url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
-                                    jsonpParam: 'json_callback',
-                                    propertyName: 'display_name',
-                                    propertyLoc: ['lat', 'lon'],
-                                    // marker: L.circleMarker([0, 0], { radius: 30 }),
-                                    drawMarker: true,
-                                    // marker.icon: true,
-                                    autoCollapse: true,
-                                    autoType: true,
-                                    minLength: 2,
-                                    marker: {
-                                        icon: true
-                                    }
-                                }));
+var geocoder = new google.maps.Geocoder();
 
+	function googleGeocoding(text, callResponse)
+	{
+		geocoder.geocode({address: text}, callResponse);
+	}
 
-                                // add  a fullscreen button to an existing map:
-                                mymap.addControl(new L.Control.Fullscreen());
-                            
-                            </script>
+	function formatJSON(rawjson)
+	{
+		var json = {},
+			key, loc, disp = [];
+
+		for(var i in rawjson)
+		{
+			key = rawjson[i].formatted_address;
+			
+			loc = L.latLng( rawjson[i].geometry.location.lat(), rawjson[i].geometry.location.lng() );
+			
+			json[ key ]= loc;	//key,value format
+		}
+
+		return json;
+	}
+
+  mymap.addControl( new L.Control.Search({
+			sourceData: googleGeocoding,
+			formatData: formatJSON,
+			markerLocation:true,
+			autoType: false,
+			autoCollapse: true,
+			minLength: 2,
+      marker: {
+          icon: true
+      }
+		}) );
+          // add  a fullscreen button to an existing map:
+          mymap.addControl(new L.Control.Fullscreen());
+      
+      </script>
  
-
-
 <style rel="stylesheet">
 .search-input {
 	font-family:Courier
@@ -250,16 +242,13 @@
     position: absolute; 
     width: 100%; 
     height: 50%;  
-	/* border: medium none;  */
+	border: medium none; 
 }
 </style>
 
 </div>
     <hr/>
-
     <!-- NEAR BY ROOMS -->
-
-
 </div>
 
 
