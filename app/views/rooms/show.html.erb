@@ -165,9 +165,12 @@
                                 var map = L.tileLayer(mbUrl1, { attribution: mbAttr }),
                                     satellite = L.tileLayer(mbUrl2, { attribution: mbAttr });
 
+            var location = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
 
                                 var mymap = L.map('map', {
-                                    center: [42.57265, 3.01467],
+                                    // center: [lat, lng],
+                                    center: location,
+                                    // center: [42.57, 3.03],
                                     // zoom: 14.5,
                                     zoom: 13,
                                     layers: [map, satellite]
@@ -183,30 +186,13 @@
                                 L.marker([42.5708961, 3.0300651000000016], ).addTo(mymap).bindPopup('This is Camping Le Pearl');
 
                                 //42.5708961, 3.0300651000000016 camping lepearl 
+//add search
 
-                                // add search
-                                // mymap.addControl(new L.Control.Search({
-                                //     url: 'https://nominatim.openstreetmap.org/search?format=json&q={<%= @room.address %>}',
-                                //     jsonpParam: 'json_callback',
-                                //     propertyName: 'display_name',
-                                //     propertyLoc: ['lat', 'lon'],
-                                //     // marker: L.circleMarker([0, 0], { radius: 30 }),
-                                //     drawMarker: true,
-                                //     // marker.icon: true,
-                                //     autoCollapse: true,
-                                //     autoType: true,
-                                //     minLength: 2,
-                                //     marker: {
-                                //         icon: true
-                                //     }
-                                // }));
-
-// <%= @room.address %>
 var geocoder = new google.maps.Geocoder();
 
 	function googleGeocoding(text, callResponse)
 	{
-		geocoder.geocode({address: room.address}, callResponse);
+		geocoder.geocode({address: text}, callResponse);
 	}
 
 	function formatJSON(rawjson)
@@ -229,20 +215,18 @@ var geocoder = new google.maps.Geocoder();
   mymap.addControl( new L.Control.Search({
 			sourceData: googleGeocoding,
 			formatData: formatJSON,
-			markerLocation: true,
+			markerLocation:true,
 			autoType: false,
 			autoCollapse: true,
 			minLength: 2,
       marker: {
           icon: true
       }
-
 		}) );
-
-                                // add  a fullscreen button to an existing map:
-                                mymap.addControl(new L.Control.Fullscreen());
-                            
-                            </script>
+          // add  a fullscreen button to an existing map:
+          mymap.addControl(new L.Control.Fullscreen());
+      
+      </script>
  
 <style rel="stylesheet">
 .search-input {
@@ -258,16 +242,13 @@ var geocoder = new google.maps.Geocoder();
     position: absolute; 
     width: 100%; 
     height: 50%;  
-	/* border: medium none;  */
+	border: medium none; 
 }
 </style>
 
 </div>
     <hr/>
-
     <!-- NEAR BY ROOMS -->
-
-
 </div>
 
 
