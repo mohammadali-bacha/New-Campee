@@ -5,7 +5,7 @@ before_action :authenticate_user!
     room = Room.find(params[:room_id])
 
     if current_user == room.user
-      flash[:alert] = "You cannot book your own property"
+      flash[:alert] = "Vous ne pouvez pas booker votre propre Camping!"
 else
     start_date = Date.parse(reservation_params[:start_date])
     end_date = Date.parse(reservation_params[:end_date])
@@ -18,11 +18,15 @@ else
 @reservation.total = room.price * days
 @reservation.save
 
-flash[:notice] = "Booked Successfully!"
+flash[:notice] = "Réservation Réussie!"
 
   end
   redirect_to room
 end 
+
+def your_trips
+  @trips = current_user.reservations.order(start_date: :asc)
+end
 
   private
   def reservation_params
