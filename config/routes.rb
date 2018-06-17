@@ -25,6 +25,8 @@ resources :photos, only: [:create, :destroy]
 resources :reservations, only: [:create]
 end
 
+resources :charges
+
 get'/your_trips' => 'reservations#your_trips'
 get'/your_reservations' => 'reservations#your_reservations'
 
