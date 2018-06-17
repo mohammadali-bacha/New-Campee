@@ -212,17 +212,17 @@ var geocoder = new google.maps.Geocoder();
 		return json;
 	}
 
-  mymap.addControl( new L.Control.Search({
-			sourceData: googleGeocoding,
-			formatData: formatJSON,
-			markerLocation:true,
-			autoType: false,
-			autoCollapse: true,
-			minLength: 2,
-      marker: {
-          icon: true
-      }
-		}) );
+  // mymap.addControl( new L.Control.Search({
+	// 		sourceData: googleGeocoding,
+	// 		formatData: formatJSON,
+	// 		markerLocation:true,
+	// 		autoType: false,
+	// 		autoCollapse: true,
+	// 		minLength: 2,
+  //     marker: {
+  //         icon: true
+  //     }
+	// 	}) );
           // add  a fullscreen button to an existing map:
           mymap.addControl(new L.Control.Fullscreen());
       
