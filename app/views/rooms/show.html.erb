@@ -169,8 +169,8 @@
 
                                 var mymap = L.map('map', {
                                     // center: [lat, lng],
-                                    center: location,
-                                    // center: [42.57, 3.03],
+                                    // center: location,
+                                    center: [42.57, 3.03],
                                     // zoom: 14.5,
                                     zoom: 13,
                                     layers: [map, satellite]
@@ -183,7 +183,7 @@
 
                                 L.control.layers(baseMaps).addTo(mymap);
 
-                                L.marker([42.5708961, 3.0300651000000016], ).addTo(mymap).bindPopup('This is Camping Le Pearl');
+                                L.marker([42.5708961, 3.0300651000000016], ).addTo(mymap).bindPopup('This is Camping');
 
                                 //42.5708961, 3.0300651000000016 camping lepearl 
 //add search
@@ -212,17 +212,17 @@ var geocoder = new google.maps.Geocoder();
 		return json;
 	}
 
-  // mymap.addControl( new L.Control.Search({
-	// 		sourceData: googleGeocoding,
-	// 		formatData: formatJSON,
-	// 		markerLocation:true,
-	// 		autoType: false,
-	// 		autoCollapse: true,
-	// 		minLength: 2,
-  //     marker: {
-  //         icon: true
-  //     }
-	// 	}) );
+  mymap.addControl( new L.Control.Search({
+			sourceData: googleGeocoding,
+			formatData: formatJSON,
+			markerLocation:true,
+			autoType: false,
+			autoCollapse: true,
+			minLength: 2,
+      marker: {
+          icon: true
+      }
+		}) );
           // add  a fullscreen button to an existing map:
           mymap.addControl(new L.Control.Fullscreen());
       
