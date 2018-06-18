@@ -2,6 +2,9 @@ class ChargesController < ApplicationController
     def new
 end
 
+def index
+    
+end
 def create
   # Amount in cents
   @amount = 500

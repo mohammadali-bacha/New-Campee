@@ -25,14 +25,14 @@
               <td class="text-right">$<%= @room.price %></td>
             </tr>
             <tr>
-              <td>Nuitée(s)</td>
+              <%# <td>Nuitée(s)</td>
               <td class="text-right">1x <span id="reservation_nights"></span></td>
-            </tr>
+            </tr> %>
             <tr>
             
-              <td class="total">Total</td>
+              <%# <td class="total">Total</td>
               <td class="text-right">100$<span id="reservation_total"></span></td>
-            </tr>
+            </tr> %>
           </tbody>
         </table>
       </div>
@@ -40,6 +40,14 @@
       <br/>
 
       <%= f.submit "Réserver maintenant", id: "btn_book", class: "btn btn-normal btn-block", disabled: true%>
+                                    <script src="https://checkout.stripe.com/checkout.js", 
+                                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>", class="stripe-button"
+                                      data-description="Paiement de votre reservation"
+                                      data-amount= <%=@room.price  * 100 %>
+                                      data-currency="eur"
+                                      data-email="<%= current_user.email %>"
+                                      data-locale="auto">
+                                </script>
     <% end %>
   </div>
 </div>
